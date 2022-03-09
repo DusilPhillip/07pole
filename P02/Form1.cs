@@ -28,43 +28,27 @@ namespace P02
                 pole[i] = rnd.Next(1, 11);
                 listBox1.Items.Add(pole[i].ToString());
             }
-            if(radioButton1.Checked)
-            {
+            Array.Sort(pole);
+            int max = pole.Max();
+            int min = pole.Min();
+            int prvnimax = Array.LastIndexOf(pole, max);
+            int poslednimin = Array.LastIndexOf(pole, min);
+            int dmin = pole[poslednimin + 1];
+            int dmax = pole[prvnimax - 1];
 
-                Array.Sort(pole);
-                int max = pole.Max();
-                int min = pole.Min();
-                int prvnimax = Array.LastIndexOf(pole, max);
-                int poslednimin = Array.LastIndexOf(pole, min);
-                int dmin = pole[poslednimin + 1];
-                int dmax = pole[prvnimax - 1];
+            MessageBox.Show(" druhý max je:" + dmax + "druhy min je" + dmin);
 
-                MessageBox.Show(" druhý max je:" + dmax + "druhy min je" + dmin);
-                foreach (int i in pole)
-                {
-                    listBox2.Items.Add(i);
-                }
-
-            }
             if (radioButton2.Checked)
             {
 
-                Array.Sort(pole);
                 Array.Reverse(pole);
 
-                int max = pole.Max();
-                int min = pole.Min();
-                int prvnimax = Array.LastIndexOf(pole, max);
-                int poslednimin = Array.LastIndexOf(pole, min);
-                int dmin = pole[poslednimin - 1];
-                int dmax = pole[prvnimax + 1];
 
-                MessageBox.Show(" druhý max je:" + dmax + "druhy min je" + dmin);
-                foreach (int i in pole)
-                {
-                    listBox2.Items.Add(i);
-                }
-                
+            }
+            
+            foreach (int i in pole)
+            {
+                listBox2.Items.Add(i);
             }
         }
     }
