@@ -20,10 +20,37 @@ namespace P04
         private void button1_Click(object sender, EventArgs e)
         {
 
-            int n = Convert.ToInt32(textBox1);
+            int n = Convert.ToInt32(textBox1.Text);
             Random rnd = new Random();
-            int pole[] = new int[]
+            int [] pole = new int[n];
 
+            for(int i = 0; i < pole.Length; i++) 
+            {
+                pole[i] = rnd.Next(1, 21);
+                listBox1.Items.Add(pole[i].ToString());
+
+            }
+            pole = pole.Distinct().ToArray();
+            for( int i = 0;i < pole.Length  ; i++)
+            {
+                listBox2.Items.Add(pole[i].ToString());
+            }
+               
+            
+            int max = pole.Max();
+            int pozicemax = Array.LastIndexOf(pole, max);
+
+            for( int i = pozicemax; i < pole.Length - 1; i++)
+            {
+                    pole[i] = pole[i + 1];
+                    
+            }
+            pole = pole.Take(pole.Length - 1).ToArray();
+            foreach( int i in pole)
+            {
+                listBox3.Items.Add(i.ToString());
+
+            }
         }
     }
 }
