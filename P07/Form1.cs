@@ -50,14 +50,13 @@ namespace P07
             double podil = prvni / posledni;
             MessageBox.Show("podil first and last je:" + podil);
 
-            foreach( int i in pole)
+            for( int i = 0 ;i <kolik; i++)
             {
-
-                int index = 0;
-                if( i < posledni)
+               
+                if ( pole[i] < posledni)
                 {
-                    index++;
-                    MessageBox.Show("prvek " + i + "na indexu" + index);
+                    
+                    MessageBox.Show("prvek " + pole[i] + "na indexu" + i);
                 }
             }
         }
